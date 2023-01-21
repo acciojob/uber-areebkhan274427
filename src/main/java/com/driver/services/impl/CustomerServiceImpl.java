@@ -39,7 +39,9 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteCustomer(Integer customerId) {
 		// Delete customer without using deleteById function
 	//	if(customerRepository2.findById(customerId).isPresent()){
-			customerRepository2.deleteById(customerId);
+		Customer customer=customerRepository2.findById(customerId).get();
+
+			customerRepository2.delete(customer);
 		//}
 	}
 
@@ -117,10 +119,10 @@ public class CustomerServiceImpl implements CustomerService {
 			Driver driver=tripBooking.getDriver();
 			driver.getCab().setAvailable(true);
 
-			driverRepository2.save(driver);
+			//driverRepository2.save(driver);
 
 
-//			tripBookingRepository2.save(tripBooking);
+			tripBookingRepository2.save(tripBooking);
 
 		}
 

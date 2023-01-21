@@ -35,9 +35,9 @@ public class DriverServiceImpl implements DriverService {
 	public void removeDriver(int driverId){
 		// Delete driver without using deleteById function
 
-		if(driverRepository3.findById(driverId).isPresent()){
+		//if(driverRepository3.findById(driverId).isPresent()){
 			driverRepository3.deleteById(driverId);
-		}
+	//	}
 
 
 	}

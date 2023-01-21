@@ -30,16 +30,17 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void register(Customer customer) {
 		//Save the customer in database
-		Customer customer1=new Customer(customer.getMobile(), customer.getPassword());
-		customerRepository2.save(customer1);
+		//Customer customer1=new Customer(customer.getMobile(), customer.getPassword());
+		//customerRepository2.save(customer1);
+		customerRepository2.save(customer);
 	}
 
 	@Override
 	public void deleteCustomer(Integer customerId) {
 		// Delete customer without using deleteById function
-		if(customerRepository2.findById(customerId).isPresent()){
+	//	if(customerRepository2.findById(customerId).isPresent()){
 			customerRepository2.deleteById(customerId);
-		}
+		//}
 	}
 
 	@Override
@@ -89,7 +90,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void cancelTrip(Integer tripId){
 		//Cancel the trip having given trip Id and update TripBooking attributes accordingly
-		if(tripBookingRepository2.findById(tripId).isPresent()){
+		//if(tripBookingRepository2.findById(tripId).isPresent()){
 			TripBooking tripBooking=tripBookingRepository2.findById(tripId).get();
 			tripBooking.setStatus(TripStatus.CANCELED);
 
@@ -97,11 +98,11 @@ public class CustomerServiceImpl implements CustomerService {
 			Driver driver=tripBooking.getDriver();
 			driver.getCab().setAvailable(true);
 
-			driverRepository2.save(driver);
+			//driverRepository2.save(driver);
 
 
-		//	tripBookingRepository2.save(tripBooking);
-		}
+			tripBookingRepository2.save(tripBooking);
+	//	}
 
 
 	}

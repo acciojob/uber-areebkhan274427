@@ -50,9 +50,11 @@ public class CustomerServiceImpl implements CustomerService {
 		//Book the driver with lowest driverId who is free (cab available variable is Boolean.TRUE). If no driver is available, throw "No cab available!" exception
 		//Avoid using SQL query
 
+
+
 		List<Driver> driverList=driverRepository2.findAll();
 
-		if(driverList==null){
+		if(driverList.size()==0){
 			throw new Exception("No cab available!");
 		}
 
@@ -99,6 +101,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public void cancelTrip(Integer tripId){
 		//Cancel the trip having given trip Id and update TripBooking attributes accordingly
 		//if(tripBookingRepository2.findById(tripId).isPresent()){
+
 			TripBooking tripBooking=tripBookingRepository2.findById(tripId).get();
 			tripBooking.setStatus(TripStatus.CANCELED);
 

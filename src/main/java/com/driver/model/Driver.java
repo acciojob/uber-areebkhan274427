@@ -3,6 +3,7 @@ package com.driver.model;
 import com.driver.model.Cab;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,7 @@ public class Driver {
 
 
     @OneToMany(mappedBy = "driver",cascade = CascadeType.ALL)
-    private List<TripBooking> tripBookingList;
+    private List<TripBooking> tripBookingList=new ArrayList<>();
 
 
     public Driver(String mobile, String password) {

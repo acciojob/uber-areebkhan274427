@@ -80,13 +80,13 @@ public class CustomerServiceImpl implements CustomerService {
 		tripBooking.setDriver(driver);
 		tripBooking.setCustomer(customer);
 
-//		driver.getTripBookingList().add(tripBooking);
-//		customer.getTripBookingList().add(tripBooking);
+		driver.getTripBookingList().add(tripBooking);
+		customer.getTripBookingList().add(tripBooking);
 
-//		driverRepository2.save(driver);
-//		customerRepository2.save(customer);
+		driverRepository2.save(driver);
+		customerRepository2.save(customer);
 
-		tripBookingRepository2.save(tripBooking);
+	//	tripBookingRepository2.save(tripBooking);
 
 
 		return tripBooking;
